@@ -35,7 +35,7 @@ def process_audio():
 
         audio_file.save(os.path.join('static/uploads', filename))
         # You can also transcribe a local file by passing in a file path
-        FILE_URL = 'E:/tests/Summarizing-Audio-Files-in-Python-32056155f2a7c208bad6d456558dc8fb8576f065/AI/static/uploads/uploaded_audio.wav'
+        FILE_URL = 'static/uploads/uploaded_audio.wav'
 
         transcriber = aai.Transcriber()
         transcript = transcriber.transcribe(FILE_URL)
