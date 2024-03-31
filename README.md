@@ -7,7 +7,7 @@ virtualenv env
 env/scripts/activate
 
 
-pip install -r requirements.text	
+pip install -r requirements.txt	
 
 
 python app.py
