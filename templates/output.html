@@ -4,14 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Processing Output</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .column {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        h1 {
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+            overflow-y: auto;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Audio Processing Output</h1><br>
-    <audio controls>
-        <p>original audio file: </p>    <source src="{{ url_for('static', filename='uploads/uploaded_audio.wav') }}" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
-    <p>Original audio file speech to text: {{ originaltext }}</p><br>
-    <p>Processed audio file Summary: {{ filename }}</p>
+    <div class="container">
+        <h1>Audio Processing Output</h1>
+        <h3>Uploaded Audio File</h3>
+        <audio controls>
+            <source src="{{ url_for('static', filename='uploads/uploaded_audio.wav') }}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="row">
+            <div class="column">
+                <h3>Transcription</h3>
+                <textarea id="originalText" readonly>{{ originaltext }}</textarea>
+                <button onclick="copyText('originalText')">Copy Text</button>
+            </div>
+            <div class="column">
+                <h3>Summary</h3>
+                <textarea id="processedText" readonly>{{ filename }}</textarea>
+                <button onclick="copyText('processedText')">Copy Text</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyText(textAreaId) {
+            const textArea = document.getElementById(textAreaId);
+            textArea.select();
+            document.execCommand('copy');
+        }
+    </script>
 </body>
 </html>
