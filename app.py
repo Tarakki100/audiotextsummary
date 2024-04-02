@@ -3,7 +3,7 @@ import requests
 import os
 import json
 
-
+#using aseemblyai api to convert audio to text(transcription)
 import assemblyai as aai
 
 
