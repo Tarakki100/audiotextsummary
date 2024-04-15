@@ -66,7 +66,7 @@ def process_audio():
         response = requests.post(url, json=payload, headers=headers)
        
         response_json = json.loads(response.text)
-        print(response_json["openai"]["result"])
+        #print(response_json["openai"]["result"])
         summary=response_json["openai"]["result"]
         output= summary
         
