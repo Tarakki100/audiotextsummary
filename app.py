@@ -60,7 +60,7 @@ def process_audio():
         headers = {
             "accept": "application/json",
             "content-type": "application/json",
-            "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjc1Zjc2YmQtYzc4Zi00MTNiLWFkMzQtYTA4NjM2ZmMyMDY3IiwidHlwZSI6ImFwaV90b2tlbiJ9.66CaJTUHK3_yOo7gx71O03TmVVSlC4mo3_zgy4Uslvg"
+            "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMGQ3MjUwNDUtZjMyMS00NDEwLTkzOTAtNDhhNWE3Y2IxMDJlIiwidHlwZSI6ImFwaV90b2tlbiJ9.9xIy0i0AYnEZIXwGA9RxRGsmhI8sLER9cYKGRHfcCGc"
         }
 
         response = requests.post(url, json=payload, headers=headers)
